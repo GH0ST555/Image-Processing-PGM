@@ -1,0 +1,34 @@
+--------------------------------------------------------------------------------------------MODULE DEFINITIONS----------------------------------------------------------------------------------------------------
+read.c -> Reads a given ASCII pgm File and stores Magic Number,Dimensions,Max Gray Value and Pixel Data into a struct. Pixel data is stored in a 2D array Performs checks on image Dimensions, Max Gray Value, Comment Size, Too little Data, Too much data, Memory allocation errors and provides the appropriate error codes and returns appropriate strings defining the error.
+
+write.c ->Writes data stored from the previous struct into a new ASCII file provided by the user. Returns error code and message when the dimesions  magic number and maxgray are incorrectly written.
+
+readbinary.c -> Reads a given BINARY pgm file and stores the exact same values and performs the same Checks on a pgm file that are done by read.c. Returns the appropriate error codes.
+
+writebinary.c ->Writes data stored from the previous struct into a new BINARY file provided by the user.
+
+getmagicno.c -> Opens a Any file to retrieve the magic number and is stored in a struct.IF the magic number is invalid (ie if its not ASCII or Binary) it returns and error message with appropriate error code.
+
+checkRW.c ->checks weather the inputfile(file to be read) and outputfile(file to be written) are readable/writeable. IF not the approriate error statement and return code are returned.
+
+chkcomnt.c -> checks weather the line is a comment present inside a PGM file and checks if it is either null or greater than the max comment length (128). IF so the appropriate error statement and return code are returned. If the line is not a commment it is returned back into the file for reading.
+
+checkstructure.c -> checks weather the file contains correct dimensions and maxGray values and stores it into a struct. Checks weather the dimensions and maxGray are within the specified values and returns the appropriate error message and error code if the values do not pass the specification.
+
+readucedRead.c -> Takes input and output file structs and reduction factor as parameters. Finds the reduced height, width and copies the maxGray from the input file. using the input file width and height it scans the 2D array to ensure that the pixel that gives remainder of 0 with reduction factor is the new pixel on the output file 2D array. 
+
+------------------------------------------------------------------------------------------MAIN FUNCTIONS:-----------------------------------------------------------------------------------------------------------
+pgmEcho.c-> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, read.c, readbinary.c, write.c and writebinary.c
+
+pgmComp.c -> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, read.c, readbinary.c
+
+pgma2b.c -> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c,read.c and writebinary.c
+
+pgmb2a.c-> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, readbinary.c write.c
+
+pgmReduce.c -> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, reducedRead.c, read.c, readbinary.c, write.c and writebinary.c
+
+pgmAssemble.c -> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, read.c, readbinary.c, write.c and writebinary.c
+
+pgmTile.c -> uses checkRW.c, getmagicno.c, chkcomnt.c, checkstructure.c, read.c, readbinary.c, write.c and writebinary.c
+     

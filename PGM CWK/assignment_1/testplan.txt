@@ -1,0 +1,11 @@
+
+THE programs would complete an extensive check on the pgmFile by calling functions from modules:reducedRead.c checkW.c, chkcomnt.c, checkmno.c, checkstructure.c, read.c,readbinary.c, write.c and writebinary.c
+Various properties of the input file will be checked such as magicnumber,dimensions,maxgray and pixel values and writeablity of file opened in write mode is checked. Appropriate error codes are returned with error messages when programs fail on specific checks.
+
+Programs also return common success codes on successful execution and return a success messages that is different for each program. There are specific checks for specific programs such as redcution factor check for pgmReduce and argument checks for pgmTile and pgmAssemble.
+
+
+
+
+
+
